@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 function Github() {
+  const location = useLocation();
   // const [data, setData] = useState(null);
   const data = useLoaderData();
   // useEffect(() => {
@@ -17,6 +18,7 @@ function Github() {
   return (
     <div className="bg-amber-950 text-white text-3xl text-center p-4">
       {data ? <>Github Followers: {data.followers}</> : "Loading..."}
+       <p>Current page: {location.pathname}</p>
     </div>
   );
 }
